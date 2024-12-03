@@ -97,6 +97,7 @@ async def fetch_movies_by_ids(movie_ids: list[int]):
             "genres": movie.genres,
             # "director": movie.director,
             "director": movie.director.get("name") if movie.director else None,
+            "poster_path": movie.poster_path,
             # "release_date": movie.release_date,
             # "cast": movie.cast,
             "cast": [member.get("name") for member in movie.cast] if movie.cast else [],
