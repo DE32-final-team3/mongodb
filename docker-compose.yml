@@ -5,26 +5,33 @@ services:
     container_name: mongodb
     restart: always
     ports:
-      - "27017:27017" 
+      - "27017:27017"
     environment:
       MONGO_INITDB_ROOT_USERNAME: root
-      MONGO_INITDB_ROOT_PASSWORD: team3  
+      MONGO_INITDB_ROOT_PASSWORD: team3
     volumes:
-      - mongodb_data:/data/db  
+      - mongodb_data:/data/db
+    networks:
+      - shared_network
 
   mongo-express:
     image: mongo-express:latest
     container_name: mongo-express
     restart: always
     ports:
-      - "8081:8081"  
+      - "8081:8081"
     environment:
-      ME_CONFIG_MONGODB_ADMINUSERNAME: root  
+      ME_CONFIG_MONGODB_ADMINUSERNAME: root
       ME_CONFIG_MONGODB_ADMINPASSWORD: team3
-      ME_CONFIG_MONGODB_SERVER: mongodb  
+      ME_CONFIG_MONGODB_SERVER: mongodb
       ME_CONFIG_MONGODB_URL: mongodb://root:team3@mongodb:27017/?authSource=admin
+    networks:
+      - shared_network
 
 volumes:
   mongodb_data:
     driver: local
 
+networks:
+  shared_network:
+    external: true
