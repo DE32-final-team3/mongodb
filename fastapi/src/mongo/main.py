@@ -2,6 +2,7 @@ from fastapi import FastAPI, HTTPException, Request
 from fastapi.middleware.cors import CORSMiddleware
 from src.mongo.crud import save_movie_to_db, fetch_all_movies, fetch_movies_by_ids
 import logging
+from typing import Dict
 
 app = FastAPI()
 
@@ -25,13 +26,13 @@ async def root():
     return {"message": "Welcome to the Movie API"}
 
 # 영화 저장 엔드포인트
-@app.post("/movies/{movie_id}")
-async def save_movie(movie_id: int):
+@app.post("/movies/{movie}")
+async def save_movie(movie: Dict):
     try:
-        result = await save_movie_to_db(movie_id)
+        result = await save_movie_to_db(movie)
         return result
     except Exception:
-        logger.error(f"Error saving movie with ID {movie_id}: {e}")
+        logger.error(f"Error saving movie with ID {movie}: {e}")
         raise HTTPException(status_code=500, detail="Failed to save movie.")
 
 # 영화 데이터 조회 엔드포인트
