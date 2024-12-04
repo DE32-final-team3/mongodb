@@ -1,8 +1,7 @@
-from fastapi import FastAPI, HTTPException, Request
+from fastapi import FastAPI, HTTPException, Request, Body
 from fastapi.middleware.cors import CORSMiddleware
 from src.mongo.crud import save_movie_to_db, fetch_all_movies, fetch_movies_by_ids
 import logging
-from typing import Dict
 
 app = FastAPI()
 
@@ -26,8 +25,8 @@ async def root():
     return {"message": "Welcome to the Movie API"}
 
 # 영화 저장 엔드포인트
-@app.post("/movies/{movie}")
-async def save_movie(movie: Dict):
+@app.post("/movies/save")
+async def save_movie(movie: dict = Body(...)):
     try:
         result = await save_movie_to_db(movie)
         return result
