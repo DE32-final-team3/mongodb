@@ -6,7 +6,7 @@ from typing import Dict, List
 # 영화 저장 함수
 async def save_movie_to_db(movie_data: Dict):
     # 기존 데이터 확인
-    existing_movie = await engine.find_one(Movie, Movie.movie_id == movie_id)
+    existing_movie = await engine.find_one(Movie, Movie.movie_id == movie_data['movie_id'])
     if existing_movie:
         return {"message": f"Movie '{existing_movie.title}' already exists in the database."}
 
@@ -21,12 +21,12 @@ async def save_movie_to_db(movie_data: Dict):
 
     # MongoDB 저장
     movie = Movie(
-        movie_id=movie_data["id"],
+        movie_id=movie_data["movie_id"],
         title=movie_data["title"],
         original_title=movie_data["original_title"],
         overview=movie_data["overview"],
         poster_path=movie_data["poster_path"],
-        original_country=movie_data["origin_country"],
+        original_country=movie_data["original_country"],
         genres=movie_data['genres'],
         release_date=movie_data["release_date"],
         cast=movie_data["cast"],
