@@ -30,7 +30,7 @@ async def save_movie(movie: dict = Body(...)):
     try:
         result = await save_movie_to_db(movie)
         return result
-    except Exception:
+    except Exception as e:
         logger.error(f"Error saving movie with ID {movie}: {e}")
         raise HTTPException(status_code=500, detail="Failed to save movie.")
 
