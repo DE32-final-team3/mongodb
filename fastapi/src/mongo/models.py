@@ -8,7 +8,7 @@ class Movie(Model):
     overview: Optional[str] = None
     poster_path: Optional[str] = None
     original_country: List[str] = []
-    genres: List[str] = []
+    genres: List[int] = []
     release_date: Optional[str] = None
     cast: Optional[List[dict]] = None
     director: Optional[dict] = None
