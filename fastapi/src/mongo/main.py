@@ -1,6 +1,6 @@
 from fastapi import FastAPI, HTTPException, Request, Body
 from fastapi.middleware.cors import CORSMiddleware
-from src.mongo.crud import save_movie_to_db, fetch_all_movies, fetch_movies_by_ids
+from src.mongo.crud import save_movie_to_db
 import logging
 
 app = FastAPI()
