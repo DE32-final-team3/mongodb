@@ -1,6 +1,6 @@
 from fastapi import FastAPI, HTTPException, Request, Body
 from fastapi.middleware.cors import CORSMiddleware
-from src.mongo.crud import save_movie_to_db
+from src.mongo.crud import save_movie_to_db, fetch_movies_by_ids, fetch_all_movies
 import logging
 
 app = FastAPI()
@@ -55,6 +55,20 @@ async def get_movies_by_ids(movie_ids: list[int] = Query(...)):
         return {"movies": movies}
     except Exception:
         raise HTTPException(status_code=500, detail="Failed to fetch movies.")
+
+# @app.get("/movies/list")
+# async def get_movies_by_ids(movie_ids: list[int] = Query(...)):
+#     logging.info(f"Received request for movie IDs: {movie_ids}")
+#     try:
+#         movies = await fetch_movies_by_ids(movie_ids)
+#         if not movies:
+#             logging.warning(f"No movies found for provided IDs: {movie_ids}")
+#             return {"message": "No movies found for the provided IDs."}
+#         logging.info(f"Movies successfully fetched: {movies}")
+#         return {"movies": movies}
+#     except Exception as e:
+#         logging.error(f"Exception in /movies/list: {e}")
+#         raise
 
 
 # 사용자 정의 예외 핸들러
