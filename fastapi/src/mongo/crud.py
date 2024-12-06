@@ -12,7 +12,7 @@ async def save_movie_to_db(movie_data: Dict):
         return {"message": f"Movie '{existing_movie.title}' already exists in the database."}
 
     #필요항목 확인단계
-    required_fields = ["movie_id", "title", "original_title", "overview", "poster_path", "original_country", "genres", "release_date", "cast", "director"]
+    required_fields = ["movie_id", "title", "original_title", "overview", "poster_path", "original_language", "genres", "release_date", "cast", "director"]
     missing_fields = [field for field in required_fields if field not in movie_data]
     if missing_fields:
         raise HTTPException(
@@ -27,7 +27,7 @@ async def save_movie_to_db(movie_data: Dict):
         original_title=movie_data["original_title"],
         overview=movie_data["overview"],
         poster_path=movie_data["poster_path"],
-        original_country=movie_data["original_country"],
+        original_language=movie_data["original_language"],
         genres=movie_data['genres'],
         release_date=movie_data["release_date"],
         cast=movie_data["cast"],
