@@ -56,6 +56,7 @@ async def get_movies_by_ids(movie_ids: list[int] = Query(...)):
     except Exception:
         raise HTTPException(status_code=500, detail="Failed to fetch movies.")
 
+
 # 사용자 정의 예외 핸들러
 @app.exception_handler(Exception)
 async def custom_exception_handler(request: Request, exc: Exception):
