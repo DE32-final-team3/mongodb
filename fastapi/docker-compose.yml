@@ -8,10 +8,10 @@ services:
     ports:
       - "8000:8000"
     environment:
-      - MONGO_URI=mongodb://root:team3@mongodb:27017/?authSource=admin
-    networks:
-      - shared_network
+      - MONGO_URI=mongodb://root:cine@3.37.94.149:27017/?authSource=admin
+    # networks:
+    #   - shared_network
 
-networks:
-  shared_network:
-    external: true
+# networks:
+#   shared_network:
+#     external: true
