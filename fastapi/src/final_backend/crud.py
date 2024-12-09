@@ -1,7 +1,7 @@
 import requests
 from fastapi import HTTPException
-from src.mongo.models import Movie
-from src.mongo.database import engine
+from src.final_backend.models import Movie
+from src.final_backend.database import engine
 from typing import Dict, List
 import logging
 
