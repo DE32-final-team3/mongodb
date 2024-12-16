@@ -8,6 +8,9 @@ services:
     ports:
       - "8000:8000"
     environment:
+      - DB_PASSWORD=cine
+      - DB_IP=3.37.94.149
+      - DB_PORT=27017
       - MONGO_URI=mongodb://root:cine@3.37.94.149:27017/?authSource=admin
     # networks:
     #   - shared_network
@@ -15,3 +18,4 @@ services:
 # networks:
 #   shared_network:
 #     external: true
+#
