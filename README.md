@@ -13,5 +13,5 @@ docker compose up
 ```python
 cd fastapi
 
-docker-compose
+docker compose up
 ```
