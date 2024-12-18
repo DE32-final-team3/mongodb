@@ -16,7 +16,7 @@
 │   │       ├── models.py # Movie class 정의 
 │   │       └── router
 │   │           ├── __init__.py
-│   │           └── movie_router.py
+│   │           └── movie_router.py #FastAPI 엔드포인트로 연결
 │   └── tests # 비어있는 테스트 파일
 │       └── __init__.py
 └── mongodb
