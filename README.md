@@ -1,7 +1,7 @@
 # MongoDB 설계하는 방법
 
 ### 파일트리 설명
-```
+```python
 ├── README.md
 ├── fastapi
 │   ├── Dockerfile
