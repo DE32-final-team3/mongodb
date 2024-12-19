@@ -10,13 +10,13 @@
 │   ├── requirements.txt
 │   ├── src
 │   │   └── final_backend
-│   │       ├── crud.py # 데이터 베이스를 업데이트하는 CRUD
-│   │       ├── database.py # MongoDB 엔진과의 연결
+│   │       ├── crud.py			# 데이터 베이스를 업데이트하는 CRUD
+│   │       ├── database.py 		# MongoDB 엔진과의 연결
 │   │       ├── main.py
-│   │       ├── models.py # Movie class 정의 
+│   │       ├── models.py 		# Movie class 정의 
 │   │       └── router
 │   │           ├── __init__.py
-│   │           └── movie_router.py #FastAPI 엔드포인트로 연결
+│   │           └── movie_router.py	#FastAPI 엔드포인트로 연결
 │   └── tests # 비어있는 테스트 파일
 │       └── __init__.py
 └── mongodb
